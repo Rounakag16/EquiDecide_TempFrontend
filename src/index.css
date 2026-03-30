@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "system-ui", sans-serif;
+}
+
+/* Custom base styles for body according to specification */
+body {
+  @apply bg-black text-zinc-50 font-sans antialiased;
+}
+
+/* Custom toggle */
+.toggle-checkbox:checked {
+  @apply bg-cyan-500 border-cyan-500;
+  right: 0;
+  border-color: #06b6d4;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply bg-cyan-500 shadow-[0_0_10px_#06b6d4];
+}
+.toggle-checkbox {
+  right: 0;
+  z-index: 1;
+  border-color: #27272a;
+  transition: all 0.3s;
+}
+.toggle-label {
+  width: 3rem;
+  height: 1.5rem;
+  background-color: #27272a;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Base custom styles to ensure flex column on mobile split view */
+@media (max-width: 768px) {
+  .split-screen-container {
+    flex-direction: column !important;
+  }
+}
