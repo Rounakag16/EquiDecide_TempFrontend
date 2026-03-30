@@ -10,11 +10,11 @@ interface MetricsDashboardProps {
 }
 
 export function MetricsDashboard({ score, historicalRate }: MetricsDashboardProps) {
-  // Determine color based on score (Neon variations)
+  // Determine color based on score (Funky but subtle variations)
   const getColor = (val: number) => {
-    if (val < 50) return '#d946ef'; // fuchsia-500
-    if (val < 75) return '#06b6d4'; // cyan-500
-    return '#a3e635'; // lime-400
+    if (val < 50) return '#f43f5e'; // rose
+    if (val < 75) return '#eab308'; // yellow
+    return '#10b981'; // emerald
   };
 
   const data = {
@@ -24,13 +24,14 @@ export function MetricsDashboard({ score, historicalRate }: MetricsDashboardProp
         data: [score, 100 - score],
         backgroundColor: [
           getColor(score),
-          '#18181b' // zinc-900
+          '#f1f5f9' // slate base gap
         ],
-        borderWidth: 0,
+        borderWidth: 2,
+        borderColor: '#0f172a',
         circumference: 180,
         rotation: 270,
-        cutout: '80%',
-        borderRadius: [4, 0]
+        cutout: '75%',
+        borderRadius: [2, 0] // Quirky imperfect borders
       },
     ],
   };
@@ -49,33 +50,33 @@ export function MetricsDashboard({ score, historicalRate }: MetricsDashboardProp
   };
 
   return (
-    <div className="bg-[#09090b] border border-zinc-900 rounded-2xl shadow-[0_0_20px_rgba(6,182,212,0.05)] w-full p-6">
+    <div className="bg-white doodle-box w-full p-6">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 h-full">
         {/* Left Section: Context Stats */}
-        <div className="w-full md:w-1/3 flex-shrink-0 flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-800 pb-6 md:pb-0 md:pr-6">
-          <h2 className="text-xl font-bold text-zinc-100 mb-1 drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">Equity Dashboard</h2>
-          <p className="text-sm text-zinc-500 mb-6 leading-relaxed">System-wide transparency metrics tracking historical fairness over time.</p>
+        <div className="w-full md:w-1/3 flex-shrink-0 flex flex-col justify-center border-b-2 md:border-b-0 md:border-r-2 border-slate-200 border-dashed pb-6 md:pb-0 md:pr-6">
+          <h2 className="text-2xl font-black text-slate-800 mb-1 flex items-center gap-2"><span>📊</span> Equity Dashboard</h2>
+          <p className="text-sm font-semibold text-slate-500 mb-6 mt-2 leading-relaxed bg-slate-50 p-2 doodle-box-sm">System-wide transparency metrics tracking historical fairness over time.</p>
           
-          <div className="bg-[#121214] p-4 rounded-xl border border-zinc-800 shadow-inner">
-            <h4 className="text-[10px] font-black text-cyan-500 uppercase tracking-widest mb-1 drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]">Historical Group Approval Rate</h4>
-            <div className="flex items-end gap-2 text-fuchsia-500 drop-shadow-[0_0_8px_rgba(217,70,239,0.5)]">
-              <span className="text-3xl font-black font-mono tracking-tighter">{(historicalRate * 100).toFixed(0)}%</span>
+          <div className="bg-[#fffbeb] p-4 doodle-box-sm border border-[#fef08a]">
+            <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Historical Group Approval Rate</h4>
+            <div className="flex items-end gap-2 text-slate-800">
+              <span className="text-4xl font-black font-mono tracking-tighter">{(historicalRate * 100).toFixed(0)}%</span>
             </div>
           </div>
         </div>
 
         {/* Right Section: Gauge */}
         <div className="w-full md:w-2/3 flex flex-col items-center justify-center relative min-h-[160px]">
-          <div className="w-full max-w-[300px] h-[150px] relative drop-shadow-[0_0_15px_rgba(163,230,53,0.3)]">
+          <div className="w-full max-w-[300px] h-[150px] relative">
             <Doughnut data={data} options={options} />
             <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-[120%] text-center">
-              <div className="text-5xl font-black text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] tracking-tighter">{score}</div>
-              <div className="text-[10px] font-black text-zinc-600 uppercase tracking-widest mt-1">Index</div>
+              <div className="text-5xl font-black text-slate-800 tracking-tighter" style={{ color: getColor(score) }}>{score}</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Index</div>
             </div>
             
             {/* Visual labels on max and min side of gauge */}
-            <div className="absolute top-[85%] left-0 text-zinc-700 font-mono text-xs font-bold leading-none">0</div>
-            <div className="absolute top-[85%] right-0 text-zinc-700 font-mono text-xs font-bold leading-none">100</div>
+            <div className="absolute top-[85%] left-0 text-slate-600 font-mono text-sm font-bold bg-white px-2">0</div>
+            <div className="absolute top-[85%] right-0 text-slate-600 font-mono text-sm font-bold bg-white px-2">100</div>
           </div>
         </div>
       </div>
