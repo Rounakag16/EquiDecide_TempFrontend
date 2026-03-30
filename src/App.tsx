@@ -7,6 +7,7 @@ import { IntakeForm } from './components/IntakeForm';
 import { ComparisonUI } from './components/ComparisonUI';
 import { MetricsDashboard } from './components/MetricsDashboard';
 import { Doodles } from './components/Doodles';
+import { IntroAnimation } from './components/IntroAnimation';
 
 const MOCK_TRADITIONAL = {
   outcome: "REJECTED" as const,
@@ -97,8 +98,11 @@ function EvaluationFlow() {
 }
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
   return (
     <>
+      {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
       <Doodles />
       <Routes>
         <Route path="/" element={

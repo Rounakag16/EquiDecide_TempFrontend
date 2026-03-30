@@ -75,8 +75,8 @@ export function MetricsDashboard({ score, historicalRate }: MetricsDashboardProp
             </div>
             
             {/* Visual labels on max and min side of gauge */}
-            <div className="absolute top-[85%] left-0 text-slate-600 font-mono text-sm font-bold bg-white px-2">0</div>
-            <div className="absolute top-[85%] right-0 text-slate-600 font-mono text-sm font-bold bg-white px-2">100</div>
+            <div className="absolute bottom-4 left-0 text-slate-800 font-mono text-sm font-black bg-white px-2 py-0.5 border-4 border-slate-900 shadow-[2px_2px_0px_#f472b6] transform -rotate-6">0</div>
+            <div className="absolute bottom-4 right-0 text-slate-800 font-mono text-sm font-black bg-white px-2 py-0.5 border-4 border-slate-900 shadow-[2px_2px_0px_#0ea5e9] transform rotate-6">100</div>
           </div>
         </div>
       </div>

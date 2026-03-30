@@ -78,3 +78,15 @@ a, button, [role="button"], input[type="submit"], input[type="checkbox"], select
     flex-direction: column !important;
   }
 }
+
+/* Animations for landing page redesign */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  white-space: nowrap;
+}

@@ -1,3 +1,41 @@
+# EquiDecide - Women Techies Hackathon 2026
+
+EquiDecide is a context-aware applicant evaluation platform built for the Women Techies Hackathon 2026. This repository contains the frontend single-page application (SPA).
+
+## 🚀 How to Download and Run locally on your PC
+
+Follow these steps to get the project up and running on your local machine:
+
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (which includes `npm`) installed on your computer.
+
+### Step 1: Download or Clone the Repository
+You can clone the project using Git from your terminal:
+```bash
+git clone <your-repository-url>
+cd EquiDecide
+```
+*(Alternatively, you can download the project as a ZIP file from the repository, extract it, and open the extracted folder in your terminal).*
+
+### Step 2: Install Dependencies
+Inside the project directory, run the following command to install all the required packages:
+```bash
+npm install
+```
+
+### Step 3: Run the Development Server
+Start the local development server by running:
+```bash
+npm run dev
+```
+
+### Step 4: Open in Browser
+Open your browser and navigate to the local URL provided in your terminal (usually `http://localhost:5173/` or something similar).
+
+---
+
+*(Below is the default Vite + React + TypeScript documentation)*
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
